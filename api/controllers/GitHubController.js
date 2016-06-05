@@ -96,8 +96,7 @@ module.exports = {
   // This way the user is redirected to the Github login page. In this page, Github will ask
   // the user if he allow this app access to his github profile and information.
   authenticate : function(req,res){
-    var redirect_url = req.protocol + '://' + req.get('host') + '/authenticated';
-    return res.redirect('https://github.com/login/oauth/authorize?client_id=d09e0f4db9504f2648bb&redirect_uri='+redirect_url);
+    return res.redirect('https://github.com/login/oauth/authorize?client_id=d09e0f4db9504f2648bb');
   },
 
   // After the user allow our APP access to his Github data, he is redirected here.
