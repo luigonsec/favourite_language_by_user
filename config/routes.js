@@ -36,7 +36,8 @@ module.exports.routes = {
     view: 'homepage'
   },
   '/authenticated' : 'GitHubController.oauth_redirect',
-  '/languages/:user' : 'LanguageController.user_languages'
+  '/authenticate' : 'GitHubController.authenticate',
+  '/languages/:user' : 'GitHubController.languages_by_user'
 
 
 

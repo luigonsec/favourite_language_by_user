@@ -9,7 +9,11 @@ $(document).ready(function(){
       type : 'GET'
     });
 
-    request.fail(function(err,aa,vv){
+    request.fail(function(err){
+
+      if(err.status == 404){
+        alert("The username doesn't exists")
+      }
 
     })
 
@@ -34,7 +38,7 @@ $(document).ready(function(){
       var options = {
           title: {
               display: true,
-              text: 'Custom Chart Title'
+              text: 'Favourite language barchart'
           }
       }
 
@@ -43,10 +47,10 @@ $(document).ready(function(){
           labels: labels,
           datasets: [
               {
-                  label: "My First dataset",
+                  label: "Codelines",
                   fill: false,
                   lineTension: 0.1,
-                  backgroundColor: "rgba(75,192,192,0.4)",
+                  backgroundColor: "rgba(238, 232, 170,1)",
                   borderColor: "rgba(75,192,192,1)",
                   borderCapStyle: 'butt',
                   borderDash: [],
@@ -76,6 +80,6 @@ $(document).ready(function(){
   });
 
   $('#login').on('click',function(){
-    window.location.href = 'https://github.com/login/oauth/authorize?client_id=d09e0f4db9504f2648bb';
+    window.location.href = '/authenticate';
   });
 })

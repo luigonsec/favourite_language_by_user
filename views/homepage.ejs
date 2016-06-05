@@ -1,25 +1,88 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>Logueate con Github</h1>
-      <button type="button" class='btn btn-default' name="button" id='login'>Login</button>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6">
-      <h2>Estadisticas</h2>
-      <input type="text" class='form-control' name="name" value="" id='github-user'>
-      <button type="button" class='btn btn-default' name="button" id='show'>Mostrar</button>
-    </div>
-
-    <div class="col-xs-6">
-      <h2>Resultados</h2>
-      <div id="canvas-wrapper">
+<div id='github-login-wrapper'>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Login with Github<button type="button" class='btn btn-own' name="button" id='login'> <i class="fa fa-github"></i> Login</button></h1>
 
       </div>
     </div>
   </div>
 </div>
+
+<% if( sails.config.github.access_token == null){ %>
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12">
+        <div class="alert alert-warning" id='warning-api-limitations'role="alert">
+          You must be logged in with Github to avoid API limitations.
+        </div>
+      </div>
+  </div>
+</div>
+
+<% } %>
+<div id="select-user-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Type a Github user to check his favourite language</h3>
+      </div>
+      <div class="col-sm-6">
+        <div class="input-group">
+          <input type="text" class='form-control' name="name" value="" id='github-user'>
+          <span class="input-group-btn">
+            <button type="button" class='btn btn-own-inverse' name="button" id='show'>Ok</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div id="canvas-wrapper">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style media="screen">
+  #github-login-wrapper{
+    background-color: palegoldenrod;
+    color : #4E4C32;
+    padding: 30px;
+  }
+
+  #warning-api-limitations{
+    margin-top: 20px;
+  }
+
+  #github-login-wrapper h1,#select-user-form h3{
+    padding:0 !important;
+    margin:0 !important;
+
+  }
+  #github-login-wrapper h1 button{
+    margin-left: 10px;
+  }
+
+
+  button.btn-own,button.btn-own:hover,button.btn-own:focus,button.btn-own:active{
+    outline-width: 0px !important;
+    background-color: white;
+    color: #8a8553;
+    font-weight: bold;
+
+  }
+  button.btn-own-inverse,button.btn-own-inverse:hover,button.btn-own-inverse:focus,button.btn-own-inverse:active{
+    outline-width: 0px !important;
+    background-color:#8a8553 ;
+    color: white;
+    font-weight: bold;
+
+  }
+</style>
