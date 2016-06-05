@@ -22,8 +22,6 @@ describe('GithubController', function() {
 
     it('should return a 200 status code', function (done) {
 
-
-      console.log(a_t);
       request(sails.hooks.http.app)
         .get('/languages/luigonsec')
         .send()
