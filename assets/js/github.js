@@ -14,6 +14,9 @@ $(document).ready(function(){
       if(err.status == 404){
         alert("The username doesn't exists")
       }
+      if(err.status == 400){
+        alert("You have reached the API limit. Log in with Github to continue")
+      }
 
     })
 

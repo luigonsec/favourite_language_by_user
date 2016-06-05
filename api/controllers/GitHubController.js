@@ -38,12 +38,24 @@ module.exports = {
         // We convert to JSON the body response
         var repos = JSON.parse(body);
 
-        // If we receive this message, the user doesn't exists and send 404 status.
-        if(repos['message'] == 'Not Found'){
+        if(repos['message']) {
 
-          res.status(404);
-          return res.send();
+          // If we receive this message, the user doesn't exists and send 404 status.
+          if(repos['message'] == 'Not Found'){
+
+            res.status(404);
+            return res.send();
+          }
+
+          // If we receive this message, we have reached the API limit
+          if(repos['message'].indexOf('API rate limit') != -1){
+            res.status(400);
+            return res.send();
+          }
+
         }
+
+
 
         // We loop over each repository
         async.each(repos, function(repo, callback){
