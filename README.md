@@ -24,8 +24,7 @@ A message will be shown telling that the server is running in the 1337 port. So 
 To run test simply type:
 
 ```
-mocha test/bootstrap.test.js test/integration/**/*.test.
-
+mocha test/bootstrap.test.js test/integration/**/*.test.js
 ```
 
 ### Comments
