@@ -38,10 +38,6 @@ If you doesn't have it installed:
 npm install mocha -g
 ```
 
-```
-mocha test/bootstrap.test.js test/integration/**/*.test.js
-```
-
 ### Comments
 
 Test could fails after running it a few times. This is due tu API limitations. We can run the test every time we want, but a problem it may happens when we beat the API limitations. I have no experience enough testing to implement a good logic in which the test automatically authenticate the user, and after that run all test, avoiding that way API limits.
